@@ -8,6 +8,9 @@ st.header('Análise de Anúncios de Vendas de Veículos')
 # Carregar os dados
 car_data = pd.read_csv('vehicles_us.csv')
 
+# Preencher valores ausentes do odômetro com a mediana (igual ao EDA)
+car_data['odometer'] = car_data['odometer'].fillna(car_data['odometer'].median())
+
 # Criar caixas de seleção (checkboxes) para os gráficos
 build_histogram = st.checkbox('Criar um histograma')
 build_scatter = st.checkbox('Criar um gráfico de dispersão')
